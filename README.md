@@ -52,19 +52,19 @@
   
 #spl_autoload_register関数を自作し、実装する。</br>
   
-Autoloader.php</br>
+`Autoloader.php</br>
   <?php</br>
 
   spl_autoload_register(function($name){</br>
                   require_once "{$name}.php";</br>
   });</br>
-</br>
+</br>`
 -----</br>
 </br>
-Person.php</br>
+`Person.php</br>
   <?php</br>
   $p = new Person('太郎','山田'); </br>
-</br>
+</br>`
 #1.未定義のクラス呼び出し</br>
 #2.オートローダの自動生成</br>
 #3.Person.phpのインクルード処理</br>
