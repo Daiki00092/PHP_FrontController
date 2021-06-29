@@ -22,53 +22,53 @@
                 RewriteRule ^(.*)$index.php[L]</br>
            }</br>
     
->フロントコントローラの処理イメージ</br>
+>フロントコントローラの処理イメージ
 
 1.Webクライアントが、以下のURIにアクセスする。</br>
-　結果として、[index.php]のプログラム処理が実行される。
-        http://example/com/user
+　結果として、[index.php]のプログラム処理が実行される。</br>
+        http://example/com/user</br>
         
-2.この際の$_SERVER['REQUEST_URL']の値は、[/user]となる。
-            ↑この__SERVERはphpのスーパーグローバル変数
+2.この際の$_SERVER['REQUEST_URL']の値は、[/user]となる。</br>
+            ↑この__SERVERはphpのスーパーグローバル変数</br>
 
-3.index.phpが、この値をディスパッチャーとして渡すことで、コントローラクラスが起動する。
+3.index.phpが、この値をディスパッチャーとして渡すことで、コントローラクラスが起動する。</br>
 
 
 >※PHPの文法(復習用)※
-  ・クロージャ：関数の中で定義された変数、及び関数の結果がセットで保存されている構文方式
+  ・クロージャ：関数の中で定義された変数、及び関数の結果がセットで保存されている構文方式</br>
   
-  ・declare(strict_types=1); #型を制限するための宣言、コードの冒頭に記述。
+  ・declare(strict_types=1); #型を制限するための宣言、コードの冒頭に記述。</br>
   
-  ・require , require_once #ユーザ定義関数は、複数のスクリプトファイルで共有することが多い。
-                           #そのため、再利用性を高めるためにユーザ定義関数を別ファイルとして保存しておき、
-                           #必要に応じて[require],[require_once]する。
+  ・require , require_once #ユーザ定義関数は、複数のスクリプトファイルで共有することが多い。</br>
+                           #そのため、再利用性を高めるためにユーザ定義関数を別ファイルとして保存しておき、</br>
+                           #必要に応じて[require],[require_once]する。</br>
 
-  ・オートローダー(概要)：複数のスクリプトを再利用するという性質上、「1クラスを1ファイル」で管理するべきである。
-  　　　　　　　　　      ファイル管理という観点から、整理しやすくなるメリットがある。
-           　　　　      しかし、扱うクラスが増えてきた際に、クラスファイルを一つずつ、[require_once]で呼び出さなくてはいけなくなり
-               　　      記述漏れの原因となりえる。
-                       　そこで利用されるのが[spl_autoload_register]関数
+  ・オートローダー(概要)：複数のスクリプトを再利用するという性質上、「1クラスを1ファイル」で管理するべきである。</br>
+  　　　　　　　　　      ファイル管理という観点から、整理しやすくなるメリットがある。</br>
+           　　　　      しかし、扱うクラスが増えてきた際に、クラスファイルを一つずつ、[require_once]で呼び出さなくてはいけなくなり</br>
+               　　      記述漏れの原因となりえる。</br>
+                       　そこで利用されるのが[spl_autoload_register]関数</br>
                         
-  ・オートローダー(ライブラリ「composer」を使用しない場合)
+  ・オートローダー(ライブラリ「composer」を使用しない場合)</br>
   
-#spl_autoload_register関数を自作し、実装する。
+#spl_autoload_register関数を自作し、実装する。</br>
   
-Autoloader.php
-  <?php
+Autoloader.php</br>
+  <?php</br>
 
-  spl_autoload_register(function($name){
-                  require_once "{$name}.php";
-  });
-
------
-
-Person.php
-  <?php
-  $p = new Person('太郎','山田'); 
-
-#1.未定義のクラス呼び出し
-#2.オートローダの自動生成
-#3.Person.phpのインクルード処理
+  spl_autoload_register(function($name){</br>
+                  require_once "{$name}.php";</br>
+  });</br>
+</br>
+-----</br>
+</br>
+Person.php</br>
+  <?php</br>
+  $p = new Person('太郎','山田'); </br>
+</br>
+#1.未定義のクラス呼び出し</br>
+#2.オートローダの自動生成</br>
+#3.Person.phpのインクルード処理</br>
 #4.Personクラスのインスタンス化
 
 
