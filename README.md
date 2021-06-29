@@ -73,7 +73,7 @@ Person.php</br>
 #2.オートローダの自動生成</br>
 #3.Person.phpのインクルード処理</br>
 #4.Personクラスのインスタンス化</br>
-
+</br></br>
 ・オートローダー(ライブラリ「composer」を使用する場合)</br>
 
 Composer内に含まれるcomposer.jsonファイル内にAutoloader情報をデータとして記述する。</br>
