@@ -1,6 +1,6 @@
 # PHP_FrontController
 
-〇フロントコントローラの役割
+>フロントコントローラの役割
 
 ->大まかにいうとWebのプログラミング処理のアクセスポイントみたいなもの。
 
@@ -20,8 +20,7 @@
                 RewriteRule ^(.*)$index.php[L]
            }
     
-
-〇フロントコントローラの処理イメージ
+>フロントコントローラの処理イメージ
 
 1.Webクライアントが、以下のURIにアクセスする。
 　結果として、[index.php]のプログラム処理が実行される。
@@ -33,7 +32,7 @@
 3.index.phpが、この値をディスパッチャーとして渡すことで、コントローラクラスが起動する。
 
 
-〇※PHPの文法(復習用)※
+>※PHPの文法(復習用)※
   ・クロージャ：関数の中で定義された変数、及び関数の結果がセットで保存されている構文方式
   
   ・declare(strict_types=1); #型を制限するための宣言、コードの冒頭に記述。
@@ -52,7 +51,7 @@
   
 #spl_autoload_register関数を自作し、実装する。
   
->Autoloader.php
+Autoloader.php
   <?php
 
   spl_autoload_register(function($name){
@@ -61,7 +60,7 @@
 
 -----
 
->Person.php
+Person.php
   <?php
   $p = new Person('太郎','山田'); 
 
