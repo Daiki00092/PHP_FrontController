@@ -49,7 +49,7 @@
   記述漏れの原因となりえる。</br>
   そこで利用されるのが[spl_autoload_register]関数</br>
                         
-  ・オートローダー(ライブラリ「composer」を使用しない場合)</br>
+  ・オートローダー(ライブラリ「composer」を使用**しない**場合)</br>
   
 #spl_autoload_register関数を自作し、実装する。</br>
   
@@ -62,6 +62,8 @@
 </br>
 </br>
 
+---------------------------------------
+
 Person.php</br>
   <?php</br>
   $p = new Person('太郎','山田'); </br>
@@ -70,6 +72,18 @@ Person.php</br>
 #1.未定義のクラス呼び出し</br>
 #2.オートローダの自動生成</br>
 #3.Person.phpのインクルード処理</br>
-#4.Personクラスのインスタンス化
+#4.Personクラスのインスタンス化</br>
 
+・オートローダー(ライブラリ「composer」を使用する場合)</br>
 
+Composer内に含まれるcomposer.jsonファイル内にAutoloader情報をデータとして記述する。
+
+    "autoload": {
+        "psr-4": {
+            "App\\" : "app/",
+            "App\\Controllers\\" : "app/Modules/User/Controllers"
+        }
+    },
+    "require": {
+        "nikic/fast-route": "^1.3.0"
+    }
