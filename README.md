@@ -76,14 +76,14 @@ Person.php</br>
 
 ・オートローダー(ライブラリ「composer」を使用する場合)</br>
 
-Composer内に含まれるcomposer.jsonファイル内にAutoloader情報をデータとして記述する。
-
-    "autoload": {
-        "psr-4": {
-            "App\\" : "app/",
-            "App\\Controllers\\" : "app/Modules/User/Controllers"
-        }
-    },
-    "require": {
-        "nikic/fast-route": "^1.3.0"
-    }
+Composer内に含まれるcomposer.jsonファイル内にAutoloader情報をデータとして記述する。</br>
+</br>
+    "autoload": {</br>
+        "psr-4": {</br>
+            "App\\" : "app/",</br>
+            "App\\Controllers\\" : "app/Modules/User/Controllers"</br>
+        }</br>
+    },</br>
+    "require": {</br>
+        "nikic/fast-route": "^1.3.0"</br>
+    }</br>
